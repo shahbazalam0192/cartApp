@@ -24,8 +24,8 @@
                     <tr *ngFor="let item of itemData; let i = index;">
                         <td data-th="Product">
                             <div class="row" style="box-shadow: 0px 0px 3px 0px; border-radius: 2px;">
-                                <div class="col-sm-2 hidden-xs"><img src="{{item?.img_url}}"
-                                        class="img-responsive" /></div>
+                                <div class="col-sm-2 hidden-xs"><img src="{{item?.img_url}}" class="img-responsive" />
+                                </div>
                                 <div class="col-sm-8">
                                     <h4 class="nomargin">{{item?.name}}</h4>
                                 </div>
@@ -36,22 +36,32 @@
                             </div>
                         </td>
                         <td data-th="Quantity">
-                            <button style="border: none;" (click)="onDecItem(i)">-</button>
-                            <input class="form-control text-center" style="background-color: #fff;" value="{{item.qty}}" disabled>
-                            <button style="border: none;" (click)="onIncItem(i)">+</button>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" style="border: none;" (click)="onDecItem(i)">-</button>
+                                <!-- <input class="form-control text-center" style="background-color: #fff;" value="{{item?.qty}}"
+                                disabled> -->
+                                <button type="button" style="border: none; background-color: #fff;">{{item?.qty}}</button>
+                                <button type="button" style="border: none;" (click)="onIncItem(i)">+</button>
+                            </div>
+                            <!-- <button style="border: none;" (click)="onDecItem(i)">-</button>
+                            <input class="form-control text-center" style="background-color: #fff;" value="{{item.qty}}"
+                                disabled>
+                            <button style="border: none;" (click)="onIncItem(i)">+</button> -->
                         </td>
                         <td data-th="Price">${{item?.price}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-sm-5" style="box-shadow: 0px 0px 3px 0px; max-width: 40.3%;">
+        <div class="col-sm-5" style="box-shadow: 0px 0px 3px 0px; max-width: 40.3%; max-height: 200px;">
             <div>
                 <h4>Total</h4>
-                <p>Items({{itemData.length}}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ${{totalPrice}}</p>
+                <p>Items({{itemData.length}}) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                    ${{totalPrice}}</p>
                 <p>Discount &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: -${{totalDiscount}}</p>
                 <p>Type Discount &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: -$0</p>
-                <p style="background-color: #d6d6d6;">Order Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ${{orderTotal}}</p>
+                <p style="background-color: #d6d6d6;">Order Total
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ${{orderTotal}}</p>
             </div>
         </div>
     </div>
